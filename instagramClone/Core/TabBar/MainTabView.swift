@@ -9,10 +9,23 @@ import SwiftUI
 
 struct MainTabView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView{
+            
+            Text("Feed")
+                .tabItem{Image(systemName: "house")}
+            Text("Search")
+                .tabItem{Image(systemName: "magnifyingglass")}
+            Text("Upload")
+                .tabItem{Image(systemName: "plus.square")}
+            Text("Notifacitions")
+                .tabItem{Image(systemName: "heart")}
+            Text("Profile")
+                .tabItem{Image(systemName: "person")}
+        }.accentColor(Color("TabBarItemColor"))
     }
 }
 
 #Preview {
     MainTabView()
 }
+
