@@ -23,12 +23,12 @@ struct SearchView: View {
                                 .clipShape(Circle())
                             VStack(alignment: .leading){
                                 Text("eneskochann")
-                                    .font(.footnote)
                                     .fontWeight(.semibold)
-                                
+                                    .foregroundStyle(Color("ButtonTextColor"))
+
                                 Text("Enes Ömer Koçhan")
-                                    .font(.footnote)
-                            }
+                                    .foregroundStyle(Color("ButtonTextColor"))
+                          }
                             Spacer()
                         }
                         .padding(.horizontal)
