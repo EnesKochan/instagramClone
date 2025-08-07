@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ProfileView: View {
+    
+    let user: User
+    
     private let gridItems: [GridItem] = [
         .init(.flexible(), spacing: 1),
         .init(.flexible(), spacing: 1),
@@ -15,7 +18,7 @@ struct ProfileView: View {
 
     ]
     var body: some View {
-        NavigationStack {
+//        NavigationStack {
             ScrollView {
                 VStack{
                     //            Header
@@ -23,7 +26,7 @@ struct ProfileView: View {
                         
                         //            Profil Kartı
                         HStack{
-                            Image("ben")
+                            Image(user.profileImageUrl ?? "")
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 80, height: 80)
@@ -41,13 +44,17 @@ struct ProfileView: View {
                         
                         //            İsim ve Açıklama
                         VStack(alignment: .leading, spacing:4){
-                            Text("Enes Ömer Koçhan ")
-                                .font(.footnote)
-                                .fontWeight(.semibold)
                             
-                            Text("Deneme deneme ses 123")
-                                .font(.footnote)
+                            if let fullName = user.fullName{
+                                Text(fullName)
+                                    .font(.footnote)
+                                    .fontWeight(.semibold)
+                            }
                             
+                            if let bio = user.bio {
+                                Text(bio)
+                                    .font(.footnote)
+                            }
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal)
@@ -82,21 +89,12 @@ struct ProfileView: View {
             }
             .navigationTitle("Profile")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        // Butona tıklandığında yapılacak işlemler
-                    }) {
-                        Image(systemName: "line.3.horizontal")
-                            .foregroundStyle(Color("ButtonTextColor"))
-                    }
-                }
-            }
+            
 
         }
     }
-}
+//}
 
 #Preview {
-    ProfileView()
+    ProfileView(user: User.MOCK_USER[0])
 }

@@ -23,7 +23,7 @@ struct CreatePasswordView: View {
                     .foregroundStyle(.gray)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 24)
-                TextField("Surname", text: $password)
+                TextField("Password", text: $password)
                     .autocapitalization(.none)
                     .modifier(IGTextFieldModifier())
                 
